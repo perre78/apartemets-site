@@ -5,8 +5,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 <BaseLayout
   lang="en"
   title="Accommodation for workers in Sweden"
-  switchHref="/sv"
+  switchHref={`${import.meta.env.BASE_URL}sv/`}
   switchLabel="Svenska"
+
 >
   <Fragment slot="header">
     <h1>Furnished accommodation for workers in Sweden</h1>
