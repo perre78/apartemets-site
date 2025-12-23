@@ -4,49 +4,38 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 const base = import.meta.env.BASE_URL;
 ---
 
-<SiteLayout lang="pl" title="Mieszkania do wynajęcia dla pracowników">
+<SiteLayout lang="pl" title="Wynajem zakwaterowania dla pracowników">
   <section class="hero">
-    <h1>Umeblowane mieszkania dla pracowników w Szwecji</h1>
+    <h1>Wynajem mieszkań i domów w Karlstad</h1>
     <p>
-      Oferujemy praktyczne, umeblowane zakwaterowanie dla pracowników
-      oraz firm tymczasowo pracujących w Szwecji.
-      Skupiamy się na komforcie, prostocie oraz pewnym miejscu pobytu
-      na czas realizacji zlecenia.
+      Oferujemy praktyczne i umeblowane zakwaterowanie dla pracowników oraz firm
+      tymczasowo pracujących w Szwecji. Skupiamy się na funkcjonalności,
+      prostocie oraz bezpiecznym pobycie w czasie pracy.
     </p>
   </section>
 
   <section class="section">
     <h2>Zakwaterowanie</h2>
-    <p>
-      Nasze obiekty są przystosowane do codziennego życia i odpowiednie
-      zarówno dla osób indywidualnych, jak i zespołów pracowniczych.
-    </p>
+    <p>Umeblowane mieszkania firmowe / pokoje ekonomiczne</p>
     <ul>
-      <li>Łóżko i miejsce do przechowywania</li>
-      <li>Kuchnia z podstawowym wyposażeniem</li>
-      <li>Łazienka z prysznicem</li>
-      <li>Internet</li>
-      <li>Pralnia</li>
+      <li>Domy</li>
+      <li>Mieszkania</li>
+      <li>Pokoje</li>
     </ul>
 
-    <img src={`${base}img/boende.jpg`} alt="Przykładowe zakwaterowanie" loading="lazy" />
+    <div class="image-row">
+      <img src={`${base}img/boende.jpg`} alt="Przykładowe zdjęcie zakwaterowania" loading="lazy" />
+      <img src={`${base}img/interior.jpg`} alt="Przykładowe zdjęcie wnętrza" loading="lazy" />
+    </div>
   </section>
 
   <section class="section">
     <h2>O nas</h2>
-    <p>
-      Wynajmujemy zakwaterowanie dla pracowników przebywających w Szwecji
-      przez krótsze lub dłuższe okresy.
-    </p>
-
-    <img src={`${base}img/interior.jpg`} alt="Przykładowe wnętrze" loading="lazy" />
+    <p>Wynajmujemy zakwaterowanie dla pracowników przebywających w Szwecji przez krótszy lub dłuższy czas.</p>
   </section>
 
   <section class="section">
     <h2>Kontakt</h2>
-    <p>
-      E-mail: info@example.com<br />
-      Telefon: +46 XX XXX XX XX
-    </p>
+    <p>E-mail: info@example.com<br />Telefon: +46 XX XXX XX XX</p>
   </section>
 </SiteLayout>

@@ -4,45 +4,38 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 const base = import.meta.env.BASE_URL;
 ---
 
-<SiteLayout lang="en" title="Rental apartments for workers">
+<SiteLayout lang="en" title="Accommodation for Workers">
   <section class="hero">
-    <h1>Furnished apartments for workers in Sweden</h1>
+    <h1>Rental Apartments and Houses in Karlstad</h1>
     <p>
-      We offer practical, furnished accommodation for workers and companies temporarily working in Sweden.
-      The focus is on comfort, simplicity, and a reliable place to stay during your assignment.
+      We offer practical and furnished accommodation for workers and companies
+      temporarily operating in Sweden. The focus is on functionality, simplicity,
+      and a safe place to stay during the working period.
     </p>
   </section>
 
   <section class="section">
-    <h2>The accommodation</h2>
-    <p>
-      Our places are designed for everyday living and suit both individuals and work teams.
-    </p>
+    <h2>Accommodation</h2>
+    <p>Furnished Company housing / Economy rooms</p>
     <ul>
-      <li>Bed and storage</li>
-      <li>Kitchen with basic equipment</li>
-      <li>Bathroom with shower</li>
-      <li>Internet</li>
-      <li>Laundry facilities</li>
+      <li>Houses</li>
+      <li>Apartments</li>
+      <li>Rooms</li>
     </ul>
 
-    <img src={`${base}img/boende.jpg`} alt="Example accommodation" loading="lazy" />
+    <div class="image-row">
+      <img src={`${base}img/boende.jpg`} alt="Example image of accommodation" loading="lazy" />
+      <img src={`${base}img/interior.jpg`} alt="Example image of interior" loading="lazy" />
+    </div>
   </section>
 
   <section class="section">
-    <h2>About us</h2>
-    <p>
-      We rent out accommodation to workers staying in Sweden for shorter or longer periods.
-    </p>
-
-    <img src={`${base}img/interior.jpg`} alt="Example interior" loading="lazy" />
+    <h2>About Us</h2>
+    <p>We rent out accommodation to workers staying in Sweden for shorter or longer periods.</p>
   </section>
 
   <section class="section">
     <h2>Contact</h2>
-    <p>
-      Email: info@example.com<br />
-      Phone: +46 XX XXX XX XX
-    </p>
+    <p>Email: info@example.com<br />Phone: +46 XX XXX XX XX</p>
   </section>
 </SiteLayout>

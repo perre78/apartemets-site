@@ -1,5 +1,5 @@
 ---
-const { lang = "sv", title = "Karlstad" } = Astro.props;
+const { lang = "sv", title = "Ekonomirum" } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 const svUrl = `${base}sv/`;
@@ -16,15 +16,14 @@ const plUrl = `${base}pl/`;
 
     <style is:global>
       :root{
-        --text: rgba(255,255,255,.92);
-        --muted: rgba(255,255,255,.72);
-        --border: rgba(255,255,255,.14);
-        --shadow: 0 12px 40px rgba(0,0,0,.35);
-        --radius: 18px;
-        --maxw: 980px;
-
-        /* 🔴 ENDA stället som styr bildstorlek */
-        --img-max: 520px;
+      --text: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .72);
+      --border: rgba(255, 255, 255, .14);
+      --shadow: 0 12px 40px rgba(0, 0, 0, .35);
+      --radius: 18px;
+      --maxw: 880px; /* Maxbredd för innehåll */
+        /* ENDA stället som styr bildstorlek */
+        --img-max: 320px;
       }
 
       main.wrap img{
@@ -33,7 +32,7 @@ const plUrl = `${base}pl/`;
       display: block;
       margin: 1.5rem auto;
       border-radius: 12px;
-  }
+      }
 
       *{ box-sizing:border-box; }
 
@@ -110,11 +109,35 @@ const plUrl = `${base}pl/`;
         padding:18px;
         border:1px solid var(--border);
         border-radius: var(--radius);
-        background: rgba(255,255,255,.06);
+        background: rgba(218, 213, 213, 0.6); /*färg på mitten-sektionerna*/
       }
 
-      /* ===== 🔥 ENDA BILDREGELN 🔥 ===== */
-      img{
+      /* ===== BILDRAD (två bilder bredvid varandra) ===== */
+      .image-row{
+        display:flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        align-items: stretch;
+      }
+
+      .image-row img{
+        width: 100%;
+        max-width: 50%;
+        height: auto;
+        margin: 0;              /* tar bort auto-centering från globala img */
+      }
+
+      /* Mobil: stapla */
+      @media (max-width: 640px){
+        .image-row{
+          flex-direction: column;
+        }
+        .image-row img{
+          max-width: 100%;
+        }
+      }
+
+      main.wrap img:not(.no-global):not(.image-row img){
         display:block;
         width: var(--img-max);
         max-width: 100%;
@@ -123,6 +146,7 @@ const plUrl = `${base}pl/`;
         border-radius:12px;
         box-shadow: 0 10px 30px rgba(0,0,0,.25);
       }
+
 
       footer{
         max-width: var(--maxw);
@@ -150,14 +174,15 @@ const plUrl = `${base}pl/`;
       <div class="header-inner">
         <a class="brand" href={lang === "sv" ? svUrl : lang === "pl" ? plUrl : enUrl}>
           <span class="dot"></span>
-          <strong>Karlstad</strong>
+          <strong>Ekonomirum</strong>
         </a>
 
-        <nav class="lang">
-          <a class="pill" href={svUrl} aria-current={lang==="sv"?"page":undefined}>SV</a>
-          <a class="pill" href={enUrl} aria-current={lang==="en"?"page":undefined}>EN</a>
-          <a class="pill" href={plUrl} aria-current={lang==="pl"?"page":undefined}>PL</a>
-        </nav>
+      <nav class="lang">
+        <a class="pill" href={svUrl} aria-current={lang==="sv"?"page":undefined}>🇸🇪 SV</a>
+        <a class="pill" href={enUrl} aria-current={lang==="en"?"page":undefined}>🇬🇧 EN</a>
+        <a class="pill" href={plUrl} aria-current={lang==="pl"?"page":undefined}>🇵🇱 PL</a>
+      </nav>
+
       </div>
     </header>
 
@@ -165,6 +190,6 @@ const plUrl = `${base}pl/`;
       <slot />
     </main>
 
-    <footer>© 2025 – Uthyrning av boende för arbetare</footer>
+    <footer>© 2025 – Ekonomirum</footer>
   </body>
 </html>
