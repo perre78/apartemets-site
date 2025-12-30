@@ -1,0 +1,90 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout 
+  lang="lt" 
+  title="Įrengti būstai Karlstade ir Hammarö | Lanksti nuoma"
+  description="Įrengti butai ir namai Karlstade ir Hammarö. Įmonėms, darbuotojams ir privatiems asmenims. Paruošta įsikelti."
+>
+  <!-- HERO / INTRO -->
+  <section class="hero">
+    <h1>Įrengti butai Karlstade ir Hammarö</h1>
+    <p>
+      Siūlome lanksčius ir prieinamus įrengtus būstus Karlstade ir Hammarö.
+      Mūsų apgyvendinimo sprendimai tinka įmonėms, darbuotojams ir privatiems asmenims,
+      ieškantiems patogaus, pilnai įrengto ir paruošto įsikelti būsto.
+    </p>
+
+    <h2>Apgyvendinimas įvairiems poreikiams</h2>
+    <p>
+      Dalis mūsų nuomininkų – statybų darbuotojai ir rangovai, laikinai dirbantys regione,
+      dažnai per Švedijos ar tarptautines įmones.
+      Tačiau nuomojame ir privatiems asmenims bei visiems, kuriems reikalingas praktiškas,
+      paruoštas gyvenimui būstas.
+    </p>
+    <p>
+    Siūlome trumpalaikę ir ilgalaikę nuomą, pagal poreikį.
+    </p>
+  </section>
+
+  <!-- OUR ACCOMMODATION -->
+  <section class="section">
+    <h2>Mūsų būstai</h2>
+    <p>
+      Nuomojame įvairaus dydžio įrengtus būstus – nuo mažesnių butų iki didesnių apartamentų ir namų.
+      Visi objektai yra pilnai apstatyti, aprūpinti reikalinga įranga ir paruošti greitam įsikėlimui.
+    </p>
+
+    <ul>
+      <li>Studijos ir butai</li>
+      <li>Didesni butai</li>
+      <li>Namai</li>
+      <li>Tik įrengti, paruošti įsikelti būstai</li>
+    </ul>
+
+    <p>
+      Būstai yra patraukliose ir centrinėse Karlstado ir Hammarö vietose,
+      netoli paslaugų, transporto ir darbo vietų.
+    </p>
+
+    <div class="image-row">
+      <img src={`${base}img/boende.jpg`} alt="Įrengtas butas Karlstade" loading="lazy" />
+      <img src={`${base}img/interior.jpg`} alt="Įrengto buto interjeras" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- FLEXIBILITY -->
+  <section class="section">
+    <h2>Lankstūs apgyvendinimo sprendimai</h2>
+    <p>
+      Pritaikome būstą pagal jūsų poreikius – nesvarbu, ar esate įmonė, rangovas ar privatus asmuo.
+      Galime derinti būsto dydį, gyventojų skaičių ir nuomos laikotarpį.
+    </p>
+    <p>
+      Mūsų tikslas – pasiūlyti saugų, patogų ir ekonomišką apgyvendinimą,
+      tinkantį tiek darbo komandiruotėms, tiek privačioms viešnagėms.
+    </p>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="section">
+    <h2>Kontaktai</h2>
+    <p>
+      Ieškote įrengto būsto Karlstade arba Hammarö – sau, šeimai ar darbuotojams?
+      Susisiekite su mumis, ir padėsime rasti tinkamą sprendimą.
+    </p>
+
+    <p>
+      <strong>Ekonomirum</strong><br />
+      Christina Bjellmeus<br />
+      Telefonas: +46&nbsp;707&nbsp;594&nbsp;441
+    </p>
+
+    <p>
+      Galime bendrauti lietuvių, anglų ir švedų kalbomis.
+    </p>
+  </section>
+</SiteLayout>

@@ -1,0 +1,100 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout 
+  lang="et" 
+  title="Möbleeritud korterid Karlstadis ja Hammarös | Paindlik üür"
+  description="Möbleeritud korterid ja majad Karlstadis ja Hammarös. Ettevõtetele, töötajatele ja eraisikutele. Sissekolimiseks valmis."
+>
+  <!-- HERO / INTRO -->
+  <section class="hero">
+    <h1>Möbleeritud korterid Karlstadis ja Hammarös</h1>
+    <p>
+      Pakume paindlikke ja taskukohaseid möbleeritud majutuslahendusi
+      Karlstadis ja Hammarös.
+      Meie elamised sobivad nii ettevõtetele ja töötajatele
+      kui ka eraisikutele, kes otsivad mugavat, täielikult sisustatud
+      ja sissekolimiseks valmis kodu.
+    </p>
+
+    <h2>Majutus erinevateks vajadusteks</h2>
+    <p>
+      Paljud meie üürnikud on ehitusvaldkonna töötajad ja alltöövõtjad,
+      kes viibivad piirkonnas ajutiselt töö tõttu, sageli Rootsi või
+      rahvusvaheliste ettevõtete kaudu.
+      Samal ajal üürime elamisi ka eraisikutele ja kõigile,
+      kellel on vaja praktilist ja valmis elamispinda.
+    </p>
+    <p>
+    Pakume nii lühi- kui ka pikaajalist üüri vastavalt vajadusele.
+    </p>
+  </section>
+
+  <!-- OUR ACCOMMODATION -->
+  <section class="section">
+    <h2>Meie majutused</h2>
+    <p>
+      Pakume erineva suurusega möbleeritud elamispindu –
+      alates väiksematest korteritest kuni suuremate korterite ja majadeni.
+      Kõik objektid on täielikult möbleeritud, varustatud
+      ja koheseks sissekolimiseks valmis.
+    </p>
+
+    <ul>
+      <li>Stuudiokorterid ja korterid</li>
+      <li>Suuremad korterid</li>
+      <li>Majad</li>
+      <li>Ainult möbleeritud ja sissekolimiseks valmis kodud</li>
+    </ul>
+
+    <p>
+      Elamised asuvad atraktiivsetes ja kesksetes piirkondades
+      Karlstadis ja Hammarös, lähedal teenustele, transpordile
+      ja töökohtadele.
+    </p>
+
+    <div class="image-row">
+      <img src={`${base}img/boende.jpg`} alt="Möbleeritud korter Karlstadis" loading="lazy" />
+      <img src={`${base}img/interior.jpg`} alt="Möbleeritud korteri interjöör" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- FLEXIBILITY -->
+  <section class="section">
+    <h2>Paindlikud majutuslahendused</h2>
+    <p>
+      Kohandame majutuse vastavalt teie vajadustele –
+      olenemata sellest, kas olete ettevõte, töötaja või eraisik.
+      See võib hõlmata elamispinna suurust, elanike arvu
+      ja üüriperioodi pikkust.
+    </p>
+    <p>
+      Meie eesmärk on pakkuda turvalist, mugavat ja kuluefektiivset majutust,
+      mis sobib võrdselt hästi nii tööga seotud viibimiseks
+      kui ka eraviisiliseks peatumiseks.
+    </p>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="section">
+    <h2>Kontakt</h2>
+    <p>
+      Otsite möbleeritud elamist Karlstadis või Hammarös –
+      endale, perele või töötajatele?
+      Võtke meiega ühendust ja aitame leida sobiva lahenduse.
+    </p>
+
+    <p>
+      <strong>Ekonomirum</strong><br />
+      Christina Bjellmeus<br />
+      Telefon: +46&nbsp;707&nbsp;594&nbsp;441
+    </p>
+
+    <p>
+      Vastame eesti, inglise ja rootsi keeles.
+    </p>
+  </section>
+</SiteLayout>

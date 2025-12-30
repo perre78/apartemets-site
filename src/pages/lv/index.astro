@@ -1,0 +1,103 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<SiteLayout 
+  lang="lv" 
+  title="Mēbelēti dzīvokļi Karlstadē un Hammarö | Elastīga īre"
+  description="Mēbelēti dzīvokļi un mājas Karlstadē un Hammarö. Uzņēmumiem, darbiniekiem un privātpersonām. Gatavi ievākšanai."
+>
+  <!-- HERO / INTRO -->
+  <section class="hero">
+    <h1>Mēbelēti dzīvokļi Karlstadē un Hammarö</h1>
+    <p>
+      Piedāvājam elastīgas un pieejamas mēbelētas naktsmītnes
+      Karlstadē un Hammarö.
+      Mūsu mājokļi ir piemēroti gan uzņēmumiem un darbiniekiem,
+      gan privātpersonām, kas meklē ērtu, pilnībā aprīkotu
+      un gatavu ievākšanās brīdim dzīvesvietu.
+    </p>
+
+    <h2>Naktsmītnes dažādām vajadzībām</h2>
+    <p>
+      Daudzi mūsu īrnieki ir būvniecības nozares darbinieki un
+      līgumslēdzēji, kas uz laiku strādā reģionā,
+      bieži caur Zviedrijas vai starptautiskiem uzņēmumiem.
+      Vienlaikus mēs izīrējam mājokļus arī privātpersonām,
+      kurām nepieciešams praktisks un gatavs dzīvošanai dzīvoklis.
+    </p>
+    <p>
+    Piedāvājam gan īstermiņa, gan ilgtermiņa īri atbilstoši vajadzībām.
+    </p>
+  </section>
+
+  <!-- OUR ACCOMMODATION -->
+  <section class="section">
+    <h2>Mūsu mājokļi</h2>
+    <p>
+      Piedāvājam dažāda lieluma mēbelētus mājokļus –
+      no mazākiem dzīvokļiem līdz lielākiem dzīvokļiem un mājām.
+      Visi īpašumi ir pilnībā mēbelēti, aprīkoti
+      un gatavi tūlītējai ievākšanai.
+    </p>
+
+    <ul>
+      <li>Studijas tipa dzīvokļi un dzīvokļi</li>
+      <li>Lielāki dzīvokļi</li>
+      <li>Mājas</li>
+      <li>Tikai mēbelēti un gatavi ievākšanai mājokļi</li>
+    </ul>
+
+    <p>
+      Mājokļi atrodas pievilcīgās un centrālās vietās
+      Karlstadē un Hammarö, netālu no pakalpojumiem,
+      sabiedriskā transporta un darba vietām.
+    </p>
+
+    <div class="image-row">
+      <img src={`${base}img/boende.jpg`} alt="Mēbelēts dzīvoklis Karlstadē" loading="lazy" />
+      <img src={`${base}img/interior.jpg`} alt="Mēbelēta dzīvokļa interjers" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- FLEXIBILITY -->
+  <section class="section">
+    <h2>Elastīgi dzīvesvietu risinājumi</h2>
+    <p>
+      Mēs pielāgojam mājokli jūsu vajadzībām –
+      neatkarīgi no tā, vai esat uzņēmums, darbinieks
+      vai privātpersona.
+      Tas var ietvert mājokļa izmēru, iemītnieku skaitu
+      un īres periodu.
+    </p>
+    <p>
+      Mūsu mērķis ir nodrošināt drošu, ērtu un
+      izmaksu ziņā efektīvu dzīvesvietu,
+      kas vienlīdz labi piemērota gan darbam,
+      gan privātai uzturēšanās vajadzībai.
+    </p>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="section">
+    <h2>Kontakti</h2>
+    <p>
+      Meklējat mēbelētu mājokli Karlstadē vai Hammarö –
+      sev, ģimenei vai darbiniekiem?
+      Sazinieties ar mums, un mēs palīdzēsim atrast
+      piemērotāko risinājumu.
+    </p>
+
+    <p>
+      <strong>Ekonomirum</strong><br />
+      Christina Bjellmeus<br />
+      Tālrunis: +46&nbsp;707&nbsp;594&nbsp;441
+    </p>
+
+    <p>
+      Atbildam latviešu, angļu un zviedru valodā.
+    </p>
+  </section>
+</SiteLayout>
