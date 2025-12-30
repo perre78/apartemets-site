@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   site: "https://perre78.github.io",
-  base: isProd ? "/apartemets-site/" : "/",   // <-- viktig
+  base: isProd ? "/ekonomirum/" : "/",   // <-- viktig
   outDir: "./docs",
 });
 // https://astro.build/configuration
