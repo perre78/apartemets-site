@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ekonomirum.se/sitemap-index.xml
+Sitemap: https://www.ekonomirum.se/sitemap-index.xml
