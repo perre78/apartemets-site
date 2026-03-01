@@ -1,4 +1,9 @@
 ---
+/**
+ * src/layouts/SiteLayout.astro
+ * Ändring: stöd för root "/" som språk-hubb med egen canonical + x-default,
+ * samt att loggan/brand-länken kan peka till "/" när man är på root.
+ */
 const {
   lang = "sv",
   title = "Ekonomirum i Karlstad",
@@ -15,12 +20,19 @@ const ltUrl = `${base}lt/`;
 const lvUrl = `${base}lv/`;
 const etUrl = `${base}et/`;
 
+// Root (ingångssida)
+const rootUrl = `${base}`;
+
 // Bygg absoluta URL:er (kräver att `site` är satt i astro.config.mjs)
 const abs = (p: string) => new URL(p, Astro.site).toString();
 
-// Canonical för aktuell språk-start
-const canonical =
-  lang === "sv"
+// Root-läge: använd lang="root" på ingångssidan
+const isRoot = lang === "root";
+
+// Canonical
+const canonical = isRoot
+  ? abs(rootUrl)
+  : lang === "sv"
     ? abs(svUrl)
     : lang === "en"
       ? abs(enUrl)
@@ -33,10 +45,31 @@ const canonical =
             : lang === "et"
               ? abs(etUrl)
               : abs(svUrl);
+
+// x-default: root när man är på root, annars EN (som du hade)
+const xDefault = isRoot ? abs(rootUrl) : abs(enUrl);
+
+// Brand-länk: root om root, annars respektive språk-start
+const brandHref = isRoot
+  ? rootUrl
+  : lang === "sv"
+    ? svUrl
+    : lang === "pl"
+      ? plUrl
+      : lang === "lt"
+        ? ltUrl
+        : lang === "lv"
+          ? lvUrl
+          : lang === "et"
+            ? etUrl
+            : enUrl;
+
+// html lang-attribut: på root sätter vi "en" (eller "sv" om du hellre vill)
+const htmlLang = isRoot ? "en" : lang;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,7 +88,7 @@ const canonical =
     <link rel="alternate" hreflang="lt" href={abs(ltUrl)} />
     <link rel="alternate" hreflang="lv" href={abs(lvUrl)} />
     <link rel="alternate" hreflang="et" href={abs(etUrl)} />
-    <link rel="alternate" hreflang="x-default" href={abs(enUrl)} />
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
 
     <style is:global>
       :root {
@@ -111,19 +144,18 @@ const canonical =
         justify-content: space-between;
         gap: 12px;
       }
+      
       .brand {
         display: flex;
         align-items: center;
-        gap: 10px;
-        text-decoration: none;
       }
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.85);
+      
+      .brand-text {
+        font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: 0.3px;
       }
-
+      
       .lang {
         display: flex;
         gap: 8px;
@@ -218,13 +250,7 @@ const canonical =
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       }
 
-      /* ===== KONTAKTKORT (proffsig placering av kontaktbild) =====
-         Använd i content:
-         <div class="contact-card">
-           <img class="contact-photo" ... />
-           <div class="contact-info">...</div>
-         </div>
-      */
+      /* ===== KONTAKTKORT ===== */
       .contact-card {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -234,7 +260,6 @@ const canonical =
         margin-top: 18px;
       }
 
-      /* Viktigt: override för att inte få "globala img-regler" */
       .contact-photo {
         width: var(--contact-photo) !important;
         max-width: var(--contact-photo) !important;
@@ -255,7 +280,6 @@ const canonical =
         opacity: 0.85;
       }
 
-      /* Mobil: bild ovanför text och centrerat */
       @media (max-width: 640px) {
         .contact-card {
           grid-template-columns: 1fr;
@@ -288,55 +312,17 @@ const canonical =
   >
     <header class="header">
       <div class="header-inner">
-        <a
-          class="brand"
-          href={lang === "sv"
-            ? svUrl
-            : lang === "pl"
-              ? plUrl
-              : lang === "lt"
-                ? ltUrl
-                : lang === "lv"
-                  ? lvUrl
-                  : lang === "et"
-                    ? etUrl
-                    : enUrl}
-        >
-          <span class="dot"></span>
-          <strong>Ekonomirum i Karlstad</strong>
-        </a>
+        <div class="brand">
+          <span class="brand-text">Ekonomirum i Karlstad</span>
+        </div>
 
         <nav class="lang">
-          <a
-            class="pill"
-            href={svUrl}
-            aria-current={lang === "sv" ? "page" : undefined}>🇸🇪 SV</a
-          >
-          <a
-            class="pill"
-            href={enUrl}
-            aria-current={lang === "en" ? "page" : undefined}>🇬🇧 EN</a
-          >
-          <a
-            class="pill"
-            href={plUrl}
-            aria-current={lang === "pl" ? "page" : undefined}>🇵🇱 PL</a
-          >
-          <a
-            class="pill"
-            href={ltUrl}
-            aria-current={lang === "lt" ? "page" : undefined}>🇱🇹 LT</a
-          >
-          <a
-            class="pill"
-            href={lvUrl}
-            aria-current={lang === "lv" ? "page" : undefined}>🇱🇻 LV</a
-          >
-          <a
-            class="pill"
-            href={etUrl}
-            aria-current={lang === "et" ? "page" : undefined}>🇪🇪 ET</a
-          >
+          <a class="pill" href={svUrl} aria-current={lang === "sv" ? "page" : undefined}>🇸🇪 SV</a>
+          <a class="pill" href={enUrl} aria-current={lang === "en" ? "page" : undefined}>🇬🇧 EN</a>
+          <a class="pill" href={plUrl} aria-current={lang === "pl" ? "page" : undefined}>🇵🇱 PL</a>
+          <a class="pill" href={ltUrl} aria-current={lang === "lt" ? "page" : undefined}>🇱🇹 LT</a>
+          <a class="pill" href={lvUrl} aria-current={lang === "lv" ? "page" : undefined}>🇱🇻 LV</a>
+          <a class="pill" href={etUrl} aria-current={lang === "et" ? "page" : undefined}>🇪🇪 ET</a>
         </nav>
       </div>
     </header>

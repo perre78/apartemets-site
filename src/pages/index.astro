@@ -1,132 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:site_name" content="Ekonomirum" />
-    <meta name="application-name" content="Ekonomirum" />
-    <meta name="apple-mobile-web-app-title" content="Ekonomirum" />
-    <title>Ekonomirum | Furnished accommodation in Karlstad & Hammarö</title>
-    <meta
-      name="description"
-      content="Furnished apartments and houses in Karlstad and Hammarö. Choose your language to view details and contact information."
-    />
+---
+/**
+ * src/pages/index.astro
+ */
+import SiteLayout from "../layouts/SiteLayout.astro";
 
-    <meta name="robots" content="index,follow" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="canonical" href="https://www.ekonomirum.se/" />
+const title = "Ekonomirum | Furnished accommodation in Karlstad & Hammarö";
+const description =
+  "Furnished apartments and houses in Karlstad and Hammarö. Choose your language to view details and contact information.";
+---
 
-    <!-- hreflang for language hub -->
-    <link rel="alternate" hreflang="sv" href="https://www.ekonomirum.se/sv/" />
-    <link rel="alternate" hreflang="en" href="https://www.ekonomirum.se/en/" />
-    <link rel="alternate" hreflang="pl" href="https://www.ekonomirum.se/pl/" />
-    <link rel="alternate" hreflang="lt" href="https://www.ekonomirum.se/lt/" />
-    <link rel="alternate" hreflang="lv" href="https://www.ekonomirum.se/lv/" />
-    <link rel="alternate" hreflang="et" href="https://www.ekonomirum.se/et/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.ekonomirum.se/" />
+<SiteLayout lang="root" title={title} description={description}>
+  <h1>Ekonomirum i Karlstad</h1>
 
-    <style>
-      :root {
-        --card-bg: rgba(218, 213, 213, 0.904);
-        --border: rgba(0, 0, 0, 0.12);
-        --radius: 22px;
-        --shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-      }
+  <p>
+    Furnished accommodation in Karlstad and Hammarö, Sweden.
+    Please choose your language to view available housing information and contact details.
+  </p>
 
-      * { box-sizing: border-box; }
+  <nav aria-label="Language selection">
+    <ul>
+      <li><a href="/sv/">🇸🇪 Svenska</a></li>
+      <li><a href="/en/">🇬🇧 English</a></li>
+      <li><a href="/pl/">🇵🇱 Polski</a></li>
+      <li><a href="/lt/">🇱🇹 Lietuvių</a></li>
+      <li><a href="/lv/">🇱🇻 Latviešu</a></li>
+      <li><a href="/et/">🇪🇪 Eesti</a></li>
+    </ul>
+  </nav>
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-        background:
-          linear-gradient(rgba(11,18,32,.78), rgba(11,18,32,.78)),
-          url('./img/Areal_photo_of_Karlstad.jpg');
-        background-size: cover;
-        background-position: center;
-      }
+  <p class="note">
+    Tip: Bookmark your preferred language page (for example <code>/en/</code> or <code>/sv/</code>).
+  </p>
 
-      .card {
-        max-width: 720px;
-        width: calc(100% - 32px);
-        padding: 28px 26px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        color: #0f172a;
-      }
+  <style>
+    /* Lokal styling (matchar din gamla "card"-känsla) */
+    .wrap h1 {
+      margin: 0 0 10px;
+      font-size: 1.9rem;
+    }
 
-      h1 {
-        margin: 0 0 10px;
-        font-size: 1.9rem;
-        color: #020617;
-      }
+    .wrap nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 10px;
+    }
 
-      p {
-        margin: 0 0 18px;
-        color: #334155;
-        line-height: 1.55;
-      }
+    .wrap nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.55);
+      color: #020617;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
 
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 18px 0 0;
-        display: grid;
-        gap: 10px;
-      }
+    .wrap nav a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    }
 
-      nav a {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        text-decoration: none;
-        background: rgba(255,255,255,0.55);
-        color: #020617;
-        box-shadow: 0 4px 14px rgba(0,0,0,.12);
-        transition: transform .12s ease, box-shadow .12s ease;
-      }
-
-      nav a:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(0,0,0,.18);
-      }
-
-      .note {
-        margin-top: 18px;
-        font-size: 0.9rem;
-        color: #475569;
-      }
-    </style>
-  </head>
-
-  <body>
-    <main class="card">
-      <h1>Ekonomirum</h1>
-      <p>
-        Furnished accommodation in Karlstad and Hammarö, Sweden.
-        Please choose your language to view available housing information and contact details.
-      </p>
-
-      <nav aria-label="Language selection">
-        <ul>
-          <li><a href="./sv/">🇸🇪 Svenska</a></li>
-          <li><a href="./en/">🇬🇧 English</a></li>
-          <li><a href="./pl/">🇵🇱 Polski</a></li>
-          <li><a href="./lt/">🇱🇹 Lietuvių</a></li>
-          <li><a href="./lv/">🇱🇻 Latviešu</a></li>
-          <li><a href="./et/">🇪🇪 Eesti</a></li>
-        </ul>
-      </nav>
-
-      <p class="note">
-        Tip: Bookmark your preferred language page (for example <code>/en/</code> or <code>/sv/</code>).
-      </p>
-    </main>
-  </body>
-</html>
+    .note {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+  </style>
+</SiteLayout>
